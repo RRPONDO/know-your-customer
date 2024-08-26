@@ -31,8 +31,10 @@ export async function GET() {
         console.warn("User information not found from Kinde authentication.");
         // ... (redirect to login or display an error message)
       }
+      return NextResponse.json({ message: "Success" }, { status: 200 });
     } catch (error) {
       console.error("Error occurred during authentication:", error);
+      return NextResponse.json({ message: "An error occurred" }, { status: 500 });
       // Handle other potential errors during getKindeServerSession
       // ... (redirect to login or display an error message)
     }

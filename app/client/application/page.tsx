@@ -1,11 +1,10 @@
-import React from "react";
 import ApplicationForm from "../_components/ApplicationForm";
 
-const ApplicationPage = () => {
+const ApplicationPage = async () => {
   return (
-    <div>
+    <>
       <ApplicationForm />
-    </div>
+    </>
   );
 };
 

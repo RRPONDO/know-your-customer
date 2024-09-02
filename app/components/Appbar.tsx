@@ -1,11 +1,5 @@
 import { HomeModernIcon } from "@heroicons/react/16/solid";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  Button,
-} from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react";
 import Link from "next/link";
 import React, { ReactNode } from "react";
 
@@ -19,7 +13,7 @@ const Appbar = ({ children }: Props) => {
       <NavbarBrand>
         <Link
           href={"/"}
-          className="flex place-items-center gap-2 text-primary-400 hover:text-primary-600 transition-colors"
+          className="flex place-items-center gap-2 text-success-400 hover:text-success-600 transition-colors"
         >
           <HomeModernIcon className="w-16" />
           <p className="font-bold text-inherit">KYC</p>

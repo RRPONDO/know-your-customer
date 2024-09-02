@@ -22,10 +22,10 @@ const SignInPanel = async () => {
     );
   return (
     <div className="flex gap-2">
-      <Button color="primary">
+      <Button color="success">
         <LoginLink>Sign In</LoginLink>
       </Button>
-      <Button color="primary">
+      <Button color="success">
         <RegisterLink>Sign Up</RegisterLink>
       </Button>
     </div>

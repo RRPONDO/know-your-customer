@@ -115,7 +115,7 @@ const HomePageForm = async () => {
           <CardBody>
             <div className="flex gap-2">
               {application?.files.map((i) => (
-                <a target="_blank" href={i.url}>
+                <a target="_blank" href={i.url} key={i.id}>
                   <FileText />
                 </a>
               ))}

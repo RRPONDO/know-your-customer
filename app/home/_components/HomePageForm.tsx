@@ -23,7 +23,7 @@ const HomePageForm = async () => {
 
   const application = await prisma.application.findUnique({
     where: {
-      userId: user?.id,
+      userId: user?.id || "1",
     },
     include: {
       files: true,

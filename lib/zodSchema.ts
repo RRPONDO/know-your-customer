@@ -20,3 +20,8 @@ export const AddApplicationFormSchema = z.object({
   iban: z.string().min(1, "Please Enter iban"),
   accBen: z.string().min(1, "Please Enter the account beneficiary"),
 })
+
+export const UpdateApplicationFormSchema = z.object({
+  status: z.string().min(1, "Please Enter Status"),
+  comment: z.string().min(1, "Please submit a comment"),
+})

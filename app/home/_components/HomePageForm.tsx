@@ -34,51 +34,90 @@ const HomePageForm = async () => {
       <div className="col-span-1">
         <Card className="max-w-[400px]">
           <CardHeader className="flex gap-3">
-            <Image
-              alt="nextui logo"
-              height={40}
-              radius="sm"
-              src={"https://avatars.githubusercontent.com/u/86160567?s=200&v=4"}
-              width={40}
-            />
             <div className="flex flex-col">
-              <p className="text-md">Application Status</p>
-              <p className="text-small text-default-500">
-                If new, click application link below
+              <p className="text-xl font-bold">Application Status</p>
+              <p className="text-sm text-default-500">
+                Check status of your application & any comments below:
               </p>
             </div>
           </CardHeader>
           <Divider />
           <CardBody>
-            <p>{application?.status}</p>
+            <div className="flex place-content-between text-sm p-3">
+              <div>Status:</div>
+              <div>{application?.status}</div>
+            </div>
+            <Divider />
+            <div className="flex place-content-between text-sm p-3">
+              <div>Comment:</div>
+              <div>{application?.comment}</div>
+            </div>
           </CardBody>
           <Divider />
-          <CardFooter>
-            <Link showAnchorIcon href={"/client/application"}>
-              Application.
-            </Link>
-          </CardFooter>
+          <CardFooter></CardFooter>
         </Card>
       </div>
       <div className="col-span-1">
         <Card className="max-w-[400px]">
           <CardHeader className="flex gap-3">
             <div className="flex flex-col">
-              <p className="text-md">{application?.counterparty} Information</p>
+              <p className="text-xl font-bold">
+                {application?.counterparty} Information
+              </p>
               {/* <p className="text-small text-default-500">nextui.org</p> */}
             </div>
           </CardHeader>
           <Divider />
           <CardBody>
-            <ul>
-              <li key="1">{application?.regName}</li>
-              <li key="2">{application?.entityType}</li>
-              <li key="3">{application?.regId}</li>
-              <li key="4">{application?.regCountry}</li>
-              <li key="5">{application?.regAddr}</li>
-              <li key="6">{application?.bsnsAddr}</li>
-              <li key="7">{application?.telephone}</li>
-              <li key="8">{application?.website}</li>
+            <ul className="flex flex-col gap-2">
+              <li className="shadow-md p-2" key="1">
+                <span className="flex place-content-between">
+                  <span>Registration Name:</span>
+                  {application?.regName}
+                </span>
+              </li>
+              <li className="shadow-md p-2" key="2">
+                <span className="flex place-content-between">
+                  <span>Entity Type:</span>
+                  {application?.entityType}
+                </span>
+              </li>
+              <li className="shadow-md p-2" key="3">
+                <span className="flex place-content-between">
+                  <span>Registration ID:</span>
+                  {application?.regId}
+                </span>
+              </li>
+              <li className="shadow-md p-2" key="4">
+                <span className="flex place-content-between">
+                  <span>Registered Country:</span>
+                  {application?.regCountry}
+                </span>
+              </li>
+              <li className="shadow-md p-2" key="5">
+                <span className="flex place-content-between">
+                  <span>Registered Address:</span>
+                  {application?.regAddr}
+                </span>
+              </li>
+              <li className="shadow-md p-2" key="6">
+                <span className="flex place-content-between">
+                  <span>Business Address:</span>
+                  {application?.bsnsAddr}
+                </span>
+              </li>
+              <li className="shadow-md p-2" key="7">
+                <span className="flex place-content-between">
+                  <span>Business Telephone:</span>
+                  {application?.telephone}
+                </span>
+              </li>
+              <li className="shadow-md p-2" key="8">
+                <span className="flex place-content-between">
+                  <span>Business Website:</span>
+                  {application?.website}
+                </span>
+              </li>
             </ul>
           </CardBody>
         </Card>
@@ -87,19 +126,54 @@ const HomePageForm = async () => {
         <Card className="max-w-[400px]">
           <CardHeader className="flex gap-3">
             <div className="flex flex-col">
-              <p className="text-md">Bank Information</p>
+              <p className="text-xl font-bold">Bank Information</p>
             </div>
           </CardHeader>
           <Divider />
           <CardBody>
             <ul>
-              <li key="9">{application?.bankName}</li>
-              <li key="10">{application?.accNum}</li>
-              <li key="11">{application?.bankAddr}</li>
-              <li key="12">{application?.country}</li>
-              <li key="13">{application?.swiftCode}</li>
-              <li key="14">{application?.iban}</li>
-              <li key="15">{application?.accBen}</li>
+              <li className="shadow-md p-2" key="9">
+                <span className="flex place-content-between">
+                  <span>Bank Name:</span>
+                  <span>{application?.bankName}</span>
+                </span>
+              </li>
+              <li className="shadow-md p-2" key="10">
+                <span className="flex place-content-between">
+                  <span>Account number:</span>
+                  {application?.accNum}
+                </span>
+              </li>
+              <li className="shadow-md p-2" key="11">
+                <span className="flex place-content-between">
+                  <span>Bank Address:</span>
+                  {application?.bankAddr}
+                </span>
+              </li>
+              <li className="shadow-md p-2" key="12">
+                <span className="flex place-content-between">
+                  <span>Country:</span>
+                  {application?.country}
+                </span>
+              </li>
+              <li className="shadow-md p-2" key="13">
+                <span className="flex place-content-between">
+                  <span>Swift Code:</span>
+                  {application?.swiftCode}
+                </span>
+              </li>
+              <li className="shadow-md p-2" key="14">
+                <span className="flex place-content-between">
+                  <span>Iban:</span>
+                  {application?.iban}
+                </span>
+              </li>
+              <li className="shadow-md p-2" key="15">
+                <span className="flex place-content-between">
+                  <span>Account beneficiary:</span>
+                  {application?.accBen}
+                </span>
+              </li>
             </ul>
           </CardBody>
         </Card>
@@ -108,7 +182,7 @@ const HomePageForm = async () => {
         <Card className="max-w-[400px]">
           <CardHeader className="flex gap-3">
             <div className="flex flex-col">
-              <p className="text-md">List of Documents</p>
+              <p className="text-xl font-bold">List of Documents</p>
             </div>
           </CardHeader>
           <Divider />

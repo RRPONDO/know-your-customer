@@ -4,6 +4,7 @@ import { AddApplicationInputType } from "@/app/client/_components/ApplicationFor
 import prisma from "../prisma";
 import { Application } from "@prisma/client";
 import moment, { Moment } from 'moment';
+import { UpdateApplicationInputType } from "@/app/admin/_components/UpdateTableForm";
 
 
 export async function savApplication(applicationData:AddApplicationInputType, filesUrl:string[],userId:string){
@@ -47,15 +48,15 @@ export async function savApplication(applicationData:AddApplicationInputType, fi
 
 }
 
-// export async function updtApplication(applicationId:number, applicationData:UpdateInputType){
-//     const result = await prisma.application.update({
-//         where:{
-//             id:applicationId,
-//         },
-//         data:{
-//             status:applicationData.status,
-//             comment:applicationData.comment
-//         }
-//     })
+export async function updtApplication(applicationId:string, applicationData:UpdateApplicationInputType){
+    const result = await prisma.application.update({
+        where:{
+            id:applicationId,
+        },
+        data:{
+            status:applicationData.status,
+            comment:applicationData.comment
+        }
+    })
 
-// }
+}

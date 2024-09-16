@@ -1,5 +1,7 @@
 import prisma from "@/lib/prisma";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+//import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { authOptions } from "@/app/api/auth/[...nextauth]/options";
+import { getServerSession } from "next-auth";
 import {
   Card,
   CardHeader,
@@ -14,21 +16,36 @@ import {
   TableRow,
   TableHeader,
 } from "@nextui-org/react";
-import { FileText } from "lucide-react";
+import { FileText, SquareCheckBig } from "lucide-react";
 import React from "react";
+import { notFound, redirect } from "next/navigation";
+//import { useRouter } from "next/navigation";
 
 const HomePageForm = async () => {
-  const { getUser } = await getKindeServerSession();
-  const user = await getUser();
+  const session = await getServerSession(authOptions);
+
+  const user = session?.user?.email;
+  // if (!user) return notFound();
+
+  if (session!.user?.email == "ronaldp@zuvapetroleum.co.zw") {
+    //router.push("/admin/adone");
+    redirect("/admin/adone");
+  }
+
+  if (session!.user?.email == "munyac@zuvapetroleum.co.zw") {
+    //router.push("/admin/adone");
+    redirect("/admin/adtwo");
+  }
 
   const application = await prisma.application.findUnique({
     where: {
-      userId: user?.id || "1",
+      userId: user || "1",
     },
     include: {
       files: true,
     },
   });
+  const icon = <SquareCheckBig />;
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 border border-green-400 gap-2 p-2">
       <div className="col-span-1">
@@ -45,7 +62,11 @@ const HomePageForm = async () => {
           <CardBody>
             <div className="flex place-content-between text-sm p-3">
               <div>Status:</div>
-              <div>{application?.status}</div>
+              <div>
+                {application?.status === "Approved"
+                  ? icon
+                  : application?.status}
+              </div>
             </div>
             <Divider />
             <div className="flex place-content-between text-sm p-3">

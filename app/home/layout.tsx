@@ -7,8 +7,8 @@ interface Props {
 const ApplicationLayout = ({ children }: Props) => {
   return (
     <div>
-      <div className="bg-success-400 flex justify-between items-center p-2">
-        <h2 className="text-white text-xl font-semibold px-2">Home</h2>
+      <div className="bg-grey-900 flex justify-between items-center p-2">
+        <h2 className="text-black text-xl font-semibold px-2">Home</h2>
         <Button color="secondary">
           <Link href="../client/application">Submit Application</Link>
         </Button>

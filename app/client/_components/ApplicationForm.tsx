@@ -8,7 +8,8 @@ import { AddApplicationFormSchema } from "@/lib/zodSchema";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { uploadFile } from "@/lib/upload";
-import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+//import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import { useSession } from "next-auth/react";
 import { savApplication } from "@/lib/actions/application";
 import { redirect, useRouter } from "next/navigation";
 import { toast } from "react-toastify";
@@ -16,7 +17,9 @@ import { toast } from "react-toastify";
 export type AddApplicationInputType = z.infer<typeof AddApplicationFormSchema>;
 const ApplicationForm = () => {
   const [images, setImages] = useState<File[]>([]);
-  const { user } = useKindeBrowserClient();
+  //const { user } = useKindeBrowserClient();
+  const { data: session } = useSession();
+  const user = session?.user?.email;
   const router = useRouter();
 
   const {
@@ -30,12 +33,13 @@ const ApplicationForm = () => {
   });
 
   const onSubmit: SubmitHandler<AddApplicationInputType> = async (data) => {
-    console.log({ data });
+    //console.log({ data });
     const fileUrls = await uploadFile(images);
-    console.log({ fileUrls });
+    //console.log({ fileUrls });
 
     try {
-      await savApplication(data, fileUrls, user?.id!);
+      await savApplication(data, fileUrls, user!);
+      console.log({ data });
       toast.success("Application submitted");
       router.push("/home");
     } catch (error) {

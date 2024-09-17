@@ -1,37 +1,37 @@
+"use client";
 import { authOptions } from "../api/auth/[...nextauth]/options";
 import { Button } from "@nextui-org/react";
 import React from "react";
-import { getServerSession } from "next-auth";
+//import { getServerSession } from "next-auth";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
-const SignInPanel = async () => {
+const SignInPanel = () => {
   // const { isAuthenticated, getUser } = await getKindeServerSession();
   // const user = await getUser();
-  const session = await getServerSession(authOptions);
+  const { status, data: session } = useSession();
+  //const session = await getServerSession(authOptions);
 
   return (
     <>
       <div>
-        {session && session.user ? (
-          <span className="text-white">
-            {session.user?.email} |{" "}
-            <Link
-              className="text-sky-500 hover:text-sky-600 transition-colors"
-              href={"/api/auth/signout"}
-            >
-              Sign Out
+        {status === "authenticated" && (
+          <div className="flex gap-2 text-white text-lg">
+            <span className="">{session.user?.email}</span> |
+            <Link className="" href="/api/auth/signout">
+              Logout
             </Link>
-          </span>
-        ) : (
-          <span className="flex gap-2">
-            {/* <Button as={Link} href={"/"}>
+          </div>
+        )}
+        {status === "unauthenticated" && (
+          <div className="flex gap-2 text-white text-lg">
+            <Button as={Link} href="/">
               Sign In
             </Button>
-
-            <Button as={Link} href={"/auth/signup"}>
+            <Button as={Link} href="/auth/signup">
               Sign Up
-            </Button> */}
-          </span>
+            </Button>
+          </div>
         )}
       </div>
     </>

@@ -59,7 +59,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-green-600 height={150px} text-white text-center">
+      <div className="bg-green-600 h-20 text-white text-center">
         Zuva Petroleum @2024
       </div>
     </div>

@@ -242,7 +242,7 @@ const ApplicationForm = () => {
           <div className="rounded-box py-4 px-2 place-items-center">
             <Button
               type="submit"
-              className="bg-success"
+              className="bg-success text-white"
               // disabled={isSubmitting}
               // isLoading={isSubmitting}
             >

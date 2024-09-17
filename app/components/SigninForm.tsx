@@ -85,8 +85,9 @@ const SigninForm = () => {
         />
         <div className="flex items-center justify-center gap-2">
           <Button
-            color="primary"
+            color="success"
             type="submit"
+            className="text-white"
             disabled={isSubmitting}
             isLoading={isSubmitting}
           >

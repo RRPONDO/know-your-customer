@@ -58,7 +58,7 @@ const SignUpForm = () => {
       console.log({ user });
       const result = await registerUser(user);
       toast.success("The User Registered Successfully");
-      router.push("/auth/signin");
+      router.push("/");
     } catch (error) {
       toast.error("Something went wrong");
       console.log(error);
@@ -68,7 +68,7 @@ const SignUpForm = () => {
   return (
     <form
       onSubmit={handleSubmit(saveUser)}
-      className="grid grid-cols-2 gap-3 p-2 shadow border rounded-md place-self-stretch"
+      className="grid grid-cols-2 gap-3 p-2 shadow-md border rounded-md place-self-stretch"
     >
       <Input
         errorMessage={errors.email?.message}
@@ -119,9 +119,9 @@ const SignUpForm = () => {
         <Button
           isLoading={isSubmitting}
           disabled={isSubmitting}
-          color="primary"
+          color="success"
           type="submit"
-          className="w-48"
+          className="w-48 text-white"
         >
           {isSubmitting ? "Please Wait..." : "Submit"}
         </Button>

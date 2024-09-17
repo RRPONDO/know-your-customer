@@ -24,13 +24,13 @@ const SignInPanel = async () => {
           </span>
         ) : (
           <span className="flex gap-2">
-            <Button as={Link} href={"/"}>
+            {/* <Button as={Link} href={"/"}>
               Sign In
             </Button>
 
             <Button as={Link} href={"/auth/signup"}>
               Sign Up
-            </Button>
+            </Button> */}
           </span>
         )}
       </div>

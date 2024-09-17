@@ -36,26 +36,6 @@ const SignInPanel = () => {
       </div>
     </>
   );
-
-  // if (await isAuthenticated())
-  //   return (
-  //     <div className="flex gap-2 place-items-center">
-  //       {user?.given_name}{" "}
-  //       <Button>
-  //         <LogoutLink>Logout</LogoutLink>
-  //       </Button>
-  //     </div>
-  //   );
-  // return (
-  //   <div className="flex gap-2">
-  //     <Button color="success">
-  //       <LoginLink>Sign In</LoginLink>
-  //     </Button>
-  //     <Button color="success">
-  //       <RegisterLink>Sign Up</RegisterLink>
-  //     </Button>
-  //   </div>
-  // );
 };
 
 export default SignInPanel;

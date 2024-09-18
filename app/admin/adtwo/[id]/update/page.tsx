@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import UpdateTableFormTwo from "@/app/admin/_components/UpdateTableFormTwo";
 import prisma from "@/lib/prisma";
 import {

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import prisma from "@/lib/prisma";
 import React from "react";
 import AdTableTwo from "../_components/AdTableTwo";

@@ -17,6 +17,7 @@ type Props = {
   applications: Prisma.ApplicationGetPayload<{
     include: {
       files: true;
+      user: true;
     };
   }>[];
 };
@@ -29,6 +30,7 @@ const AdTable = ({ applications }: Props) => {
           <TableColumn>Reg Name</TableColumn>
           <TableColumn>Counterparty</TableColumn>
           <TableColumn>Entity Type</TableColumn>
+          <TableColumn>Date Created</TableColumn>
           <TableColumn>Status</TableColumn>
           <TableColumn>Action</TableColumn>
         </TableHeader>
@@ -38,6 +40,7 @@ const AdTable = ({ applications }: Props) => {
               <TableCell>{item.regName}</TableCell>
               <TableCell>{item.counterparty}</TableCell>
               <TableCell>{item.entityType}</TableCell>
+              <TableCell>{item.user.createdAt.toString()}</TableCell>
               <TableCell>{item.status}</TableCell>
               <TableCell>
                 <div className="flex">

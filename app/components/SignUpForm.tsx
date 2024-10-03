@@ -110,7 +110,10 @@ const SignUpForm = () => {
         startContent={<KeyIcon className="w-4" />}
       />
       <Checkbox {...register("accepted")} className="col-span-2">
-        I Accept The <Link href="/terms">Terms</Link>
+        I Accept The{" "}
+        <Link target="_blank" href="/terms">
+          Terms
+        </Link>
       </Checkbox>
       {!!errors.accepted && (
         <p className="text-red-500">{errors.accepted?.message}</p>

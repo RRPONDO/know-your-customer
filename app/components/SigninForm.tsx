@@ -47,7 +47,7 @@ const SigninForm = () => {
       toast.error(result?.error);
       return;
     }
-    toast.success("Welcome To Zuva Online KYC");
+    toast.success("Welcome To Zuva Petroleum KYC Onboarding");
     router.push("/home");
     //router.push(props.callbackUrl ? props.callbackUrl : "/");
   };

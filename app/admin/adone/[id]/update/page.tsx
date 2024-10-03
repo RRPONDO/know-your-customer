@@ -34,13 +34,6 @@ const page = async ({ params }: Props) => {
         <div className="col-span-1">
           <Card className="max-w-[400px]">
             <CardHeader className="flex gap-3">
-              {/* <Image
-              alt="nextui logo"
-              height={40}
-              radius="sm"
-              src={"https://avatars.githubusercontent.com/u/86160567?s=200&v=4"}
-              width={40}
-            /> */}
               <div className="flex flex-col">
                 <p className="text-xl font-bold">
                   Approve or Reject Application

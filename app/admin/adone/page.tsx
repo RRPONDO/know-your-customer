@@ -10,6 +10,7 @@ const AdminOnePage = async () => {
     },
     include: {
       files: true,
+      user: true,
     },
   });
   const [applications] = await Promise.all([applicationPromise]);
